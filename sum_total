@@ -1,0 +1,7 @@
+def sum_total(total_player, bet):
+    global total
+    if total_player >= bet:
+        total += bet
+        total_player -= bet
+        return total_player
+    return False
