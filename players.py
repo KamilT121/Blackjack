@@ -1,0 +1,29 @@
+class players:
+    def __init__(self, total_player, prices = 0, cards = [], sum_value = 0):
+        self.total_player = total_player
+        self.prices = prices
+        self.cards = cards
+        self.sum_value = sum_value
+
+    def split(self, total):
+        if self.total_player >= total:
+            self.prices += total
+            self.total_player -= total
+        else:
+            return False
+
+    def get_card(self, card, value):
+        self.sum_value += value
+        self.cards.append(card)
+
+    def win(self, total):
+        self.total_player += int(total)
+        self.prices = 0
+        self.cards = []
+        self.sum_value = 0
+
+    def get_price(self):
+        return self.prices
+
+    def get_sum_value(self):
+        return self.sum_value
