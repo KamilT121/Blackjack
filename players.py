@@ -1,5 +1,6 @@
 class players:
     def __init__(self, total_player, prices = 0, cards = [], sum_value = 0):
+        #nie ustawiać listy jako elemntu domyślnego, ponieważ każda gracza będzie używał tej samej listy, i nazwa klasy wielką literą powinna byc ;p
         self.total_player = total_player
         self.prices = prices
         self.cards = cards
