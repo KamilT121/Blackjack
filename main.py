@@ -1,10 +1,15 @@
+import time
+
 import class_Deck
 import total_f
 import random
 import players
-
+import sys
 import pygame
-
+import game_screen
+import menu_screen
+import tutorial_screen
+import settings_screen
 
 global sum_total
 def get_deck(n=0):
@@ -54,10 +59,27 @@ if __name__ == "__main__":
     p_total = 3000 #Całość pieniędzy
     i = 2 #Ilość osób
     pygame.init()
-    screen = pygame.display.set_mode((1200, 700))
+    screen = pygame.display.set_mode((1920, 1080))
 
 
-    tab_deck = get_deck(n)
-    tab_players = get_players(i)
+    #tab_deck = get_deck(n)
+    #tab_players = get_players(i)
 
-    print(get_card(tab, n).getName())
+    #print(get_card(tab, n).getName())
+    menu = pygame.image.load("images\\Menu_koncept.png")
+    screen.blit(menu,(0,0))
+    state = 0
+    while True:
+        if state == 0:
+            state = menu_screen.main(screen)
+        elif state == 1:
+            state = game_screen.main(screen)
+        elif state == 2:
+            state = settings_screen.main(screen)
+        elif state == 3:
+            state = tutorial_screen.main(screen)
+
+        pygame.display.update()
+        time.sleep(0.1)
+
+    # KONIEC
